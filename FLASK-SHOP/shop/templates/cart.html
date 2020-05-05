@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basket</title>
+</head>
+
+<body>
+    <main>
+        {% for key, value in display_cart.items() %}
+        <div class="basket">
+            <div class="basket-labels">
+                <ul>
+                    <li class="item item-heading">Item</li>
+                    <li class="price">Price</li>
+                    <li class="quantity">Quantity</li>
+                    <li class="subtotal">Subtotal</li>
+                    <li class="total">Total</li>
+                </ul>
+            </div>
+            <div class="basket-product">
+                <div class="item">
+                    <div class="product-image">
+                        {{ value["title"] }}
+                    </div>
+                </div>
+                <div class="price">{{ value["price"] }}</div>
+                <div class="quantity">
+                    {{ value["quantity"]}}
+                </div>
+                <div class="subtotal">{{ (value["quantity"] * value["price"]) }}</div>
+                    <div class="total">£{{ total }}</div>
+            </div>
+
+           <div class="remove">
+                    <form action="{{ url_for('delete_product', product_id=key|int) }}" method="POST">
+                        <input class="" type="submit" value="Delete">
+                    </form>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+    <div class="summary-checkout">
+        <button href="{{ url_for('checkout') }}" class="checkout-cta">Go to Secure Checkout</button>
+    </div>
+</body>
+
+</html>
+
+<script src="{{url_for('static', filename='assets/js/jquery.js')}}"></script>
+
+{% endblock content %}

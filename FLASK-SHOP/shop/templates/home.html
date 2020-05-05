@@ -1,0 +1,258 @@
+{% extends "layout.html" %}
+{% block content %}
+
+ 	<body>
+
+ 		<!--welcome-hero start -->
+ 		<header id="home" class="welcome-hero">
+
+ 			<div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+ 				<!--/.carousel-indicator -->
+ 				 <ol class="carousel-indicators">
+ 					<li data-target="#header-carousel" data-slide-to="0" class="active"><span class="small-circle"></span></li>
+ 					<li data-target="#header-carousel" data-slide-to="1"><span class="small-circle"></span></li>
+ 					<li data-target="#header-carousel" data-slide-to="2"><span class="small-circle"></span></li>
+ 				</ol><!-- /ol-->
+ 				<!--/.carousel-indicator -->
+ 				<!--/.carousel-inner -->
+ 				<div class="carousel-inner" role="listbox">
+ 					<!-- .item -->
+ 					<div class="item active">
+ 						<div class="single-slide-item slide1">
+ 							<div class="container">
+ 								<div class="welcome-hero-content">
+ 									<div class="row">
+ 										<div class="col-sm-7">
+ 											<div class="single-welcome-hero">
+
+ 												<div class="welcome-hero-txt">
+ 													<h4>New awesome headphones</h4>
+ 													<h2>The best quality</h2>
+ 													<p>
+ 														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiuiana smod tempor  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+ 													</p>
+ 													<div class="packages-price">
+ 														<p>
+ 															$ 89.00
+ 															<del>$ 119.00</del>
+ 														</p>
+ 													</div>
+ 													<button class="btn-cart welcome-add-cart" onclick="window.location.href='#'">
+ 														<span class="lnr lnr-plus-circle"></span>
+ 														add <span>to</span> cart
+ 													</button>
+ 													<button class="btn-cart welcome-add-cart welcome-more-info" onclick="window.location.href='#'">
+ 														more info
+ 													</button>
+ 												</div><!--/.welcome-hero-txt-->
+
+ 											</div><!--/.single-welcome-hero-->
+ 										</div><!--/.col-->
+ 										<div class="col-sm-5">
+ 											<div class="single-welcome-hero">
+
+ 												<div class="welcome-hero-img">
+ 													<img src = "{{ url_for('static', filename='assets/images/slider/slider1.jpg') }}" alt="slider image">
+ 												</div><!--/.welcome-hero-txt-->
+
+ 											</div><!--/.single-welcome-hero-->
+ 										</div><!--/.col-->
+ 									</div><!--/.row-->
+ 								</div><!--/.welcome-hero-content-->
+ 							</div><!-- /.container-->
+ 						</div><!-- /.single-slide-item-->
+
+ 					</div><!-- /.item .active-->
+
+ 					<div class="item">
+ 						<div class="single-slide-item slide2">
+ 							<div class="container">
+ 								<div class="welcome-hero-content">
+ 									<div class="row">
+ 										<div class="col-sm-7">
+ 											<div class="single-welcome-hero">
+ 												<div class="welcome-hero-txt">
+ 													<h4>great design collectxssion</h4>
+ 													<h2>mapple wood accent chair</h2>
+ 													<p>
+ 														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiuiana smod tempor  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+ 													</p>
+ 													<div class="packages-price">
+ 														<p>
+ 															$ 199.00
+ 															<del>$ 299.00</del>
+ 														</p>
+ 													</div>
+ 													<button class="btn-cart welcome-add-cart" onclick="window.location.href='#'">
+ 														<span class="lnr lnr-plus-circle"></span>
+ 														add <span>to</span> cart
+ 													</button>
+ 													<button class="btn-cart welcome-add-cart welcome-more-info" onclick="window.location.href='#'">
+ 														more info
+ 													</button>
+ 												</div><!--/.welcome-hero-txt-->
+ 											</div><!--/.single-welcome-hero-->
+ 										</div><!--/.col-->
+ 										<div class="col-sm-5">
+ 											<div class="single-welcome-hero">
+ 												<div class="welcome-hero-img">
+ 													<img src="{{url_for('static', filename='assets/images/slider/slider2.jpg')}}" alt="slider image">
+ 												</div><!--/.welcome-hero-txt-->
+ 											</div><!--/.single-welcome-hero-->
+ 										</div><!--/.col-->
+ 									</div><!--/.row-->
+ 								</div><!--/.welcome-hero-content-->
+ 							</div><!-- /.container-->
+ 						</div><!-- /.single-slide-item-->
+
+ 					</div><!-- /.item .active-->
+
+ 					<div class="item">
+ 						<div class="single-slide-item slide3">
+                            {% for product in products %}
+ 							<div class="container">
+ 								<div class="welcome-hero-content">
+ 									<div class="row">
+ 										<div class="col-sm-7">
+ 											<div class="single-welcome-hero">
+
+ 												<div class="welcome-hero-txt">
+ 													<h4>This is the newest collection</h4>
+ 													<h2>New designed headphones</h2>
+ 													<p>
+ 														Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiuiana smod tempor  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+ 													</p>
+ 													<div class="packages-price">
+ 														<p>
+ 															{{ product.price }}
+ 															<del>$ 79.99 </del>
+ 														</p>
+ 													</div>
+ 													<button href="/add_to_cart/{{product.id}}" class="btn-cart welcome-add-cart" onclick="window.location.href='#'">
+
+ 														<span class="lnr lnr-plus-circle"></span>
+ 														add <span>to</span> cart
+ 													</button>
+ 													<button class="btn-cart welcome-add-cart welcome-more-info" onclick="window.location.href='#'">
+ 														more info
+ 													</button>
+ 												</div><!--/.welcome-hero-txt-->
+
+ 											</div><!--/.single-welcome-hero-->
+
+ 										</div><!--/.col-->
+ 										<div class="col-sm-5">
+ 											<div class="single-welcome-hero">
+ 												<div class="welcome-hero-img">
+ 													<img src="{{url_for('static', filename='assets/images/slider/slider3.jpg')}}" alt="slider image">
+ 												</div><!--/.welcome-hero-txt-->
+ 											</div><!--/.single-welcome-hero-->
+ 										</div><!--/.col-->
+ 									</div><!--/.row-->
+ 								</div><!--/.welcome-hero-content-->
+ 							</div><!-- /.container-->
+                            {% endfor %}
+ 						</div><!-- /.single-slide-item-->
+
+ 					</div><!-- /.item .active-->
+ 				</div><!-- /.carousel-inner-->
+
+ 			</div><!--/#header-carousel-->
+
+ 			<!-- top-area Start -->
+ 			<div class="top-area">
+ 				<div class="header-area">
+
+ 				</div><!--/.header-area-->
+ 			    <div class="clearfix"></div>
+
+ 			</div><!-- /.top-area-->
+ 			<!-- top-area End -->
+
+ 		</header><!--/.welcome-hero-->
+ 		<!--welcome-hero end -->
+
+ 		<!--new-arrivals start -->
+ 		<section id="new-arrivals" class="new-arrivals">
+
+ 			<div class="container">
+ 				<div class="section-header">
+ 					<h2>Our product</h2>
+ 				</div><!--/.section-header-->
+ 				<div class="new-arrivals-content">
+ 					<div class="row">
+                        {% for product in products %}
+ 						<div class="col-md-3 col-sm-4">
+ 							<div class="single-new-arrival">
+ 								<div class="single-new-arrival-bg">
+ 									<a href="{{ url_for('product', product_id=product.id) }}"><img src = "{{ url_for('static', filename='img/' + product.image_file) }}" alt="new-arrivals images"></a>
+ 									<div class="single-new-arrival-bg-overlay"></div>
+ 									<div class="sale bg-1">
+ 										<p>sale</p>
+ 									</div>
+
+ 									<div class="new-arrival-cart">
+                                    <a href="/add_to_cart/{{product.id}}">Add to Cart</a>
+                                    <a href="/view_product/{{product.id}}">View Product</a>
+ 										<p class="arrival-review pull-right">
+ 											<span class="lnr lnr-heart"></span>
+ 											<span class="lnr lnr-frame-expand"></span>
+ 										</p>
+ 									</div>
+
+ 								</div>
+ 								<h4><a href="#">{{ product.title }}</a></h4>
+ 								<p class="arrival-product-price"> {{ product.price }} </p>
+ 							</div>
+ 						</div>
+                        {% endfor %}
+ 				    </div>
+ 			    </div><!--/.container-->
+
+ 		</section><!--/.new-arrivals-->
+ 		<!--new-arrivals end -->
+ 		<!--footer start-->
+ 		<footer id="footer"  class="footer">
+ 			<div class="container">
+ 				<div class="hm-footer-copyright text-center">
+ 					<div class="footer-social">
+ 						<a href="#"><i class="fa fa-facebook"></i></a>
+ 						<a href="#"><i class="fa fa-instagram"></i></a>
+ 						<a href="#"><i class="fa fa-linkedin"></i></a>
+ 						<a href="#"><i class="fa fa-pinterest"></i></a>
+ 						<a href="#"><i class="fa fa-behance"></i></a>
+ 					</div>
+ 				</div><!--/.text-center-->
+ 			</div><!--/.container-->
+
+ 			<div id="scroll-Top">
+ 				<div class="return-to-top">
+ 					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+ 				</div>
+
+ 			</div><!--/.scroll-Top-->
+
+         </footer><!--/.footer-->
+ 		<!--footer end-->
+
+ 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+ 		<script src="{{url_for('static', filename='assets/js/jquery.js')}}"></script>
+
+ 		<!--bootstrap.min.js-->
+         <script src="{{url_for('static', filename='assets/js/bootstrap.min.js')}}"></script>
+
+ 		<!-- bootsnav js -->
+ 		<script src="{{url_for('static', filename='assets/js/bootsnav.js')}}"></script>
+
+ 		<!--owl.carousel.js-->
+         <script src="{{url_for('static', filename='assets/js/owl.carousel.min.js')}}"></script>
+
+
+ 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+     </body>
+
+ </html>
+
+{% endblock content %}

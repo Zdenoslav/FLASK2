@@ -1,0 +1,106 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+
+   <head>
+       <!-- meta data -->
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+       <!--font-family-->
+      <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+       <!-- title of site -->
+       <title href="#home.html">Headphones</title>
+
+       <!-- For favicon png -->
+      <link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+
+       <!--font-awesome.min.css-->
+       <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/font-awesome.min.css') }}">
+
+       <!--linear icon css-->
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/linearicons.css')}} ">
+
+      <!--animate.css-->
+       <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animate.css')}}">
+
+       <!--owl.carousel.css-->
+       <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.carousel.min.css')}}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.theme.default.min.css')}}">
+
+       <!--bootstrap.min.css-->
+       <link rel="stylesheet" href="{{url_for('static', filename='assets/css/bootstrap.min.css')}}">
+
+      <!-- bootsnav -->
+      <link rel="stylesheet" href="{{url_for('static', filename='assets/css/bootsnav.css')}}" >
+
+      <link rel="stylesheet" href="{{url_for('static', filename='assets/js/custom.js')}}">
+
+       <!--style.css-->
+      <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
+
+      <!--style.css-->
+     <link rel="stylesheet" href="{{url_for('static', filename='assets/css/styles2.css')}}">
+
+       <!--responsive.css-->
+       <!--<link rel="stylesheet" href="{{url_for('static', filename='assets/css/responsive.css')}}">
+
+
+   </head>
+<body>
+
+
+    <div id="header">
+    <!--    <a href="{{ url_for('home') }}" class="header">Home</a>&nbsp| -->
+    <!--    <a href="{{ url_for('about') }}" class="header">About Us</a>&nbsp  -->|
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('home') }}" style="padding: 30px">HEADPHONES</a>
+
+        </div><!--/.navbar-header-->
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+                <li class="">{% if current_user.is_authenticated %}
+                Hello, {{ current_user.username }}!
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                 <li class="scroll"> <a href="{{ url_for('register') }}">Register</a></li>
+                 <li class=""="scroll"> <a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+                <li class="scroll"> <a href="{{ url_for('cart_display') }}" class="header">Cart ({{total_quantity}} items) </a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+
+    <div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+   <script type="text/javascript" src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"> -->
+
+    </script>
+</body>
+
+</html>
